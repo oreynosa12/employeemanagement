@@ -18,10 +18,52 @@ inquirer
     },
   ])
   .then(answers => {
-    if (answers.choice == 'Add Employee'){
-        addEmployee()
+    switch (answers.choice) {
+        case 'View all departments':
+            addviewDepartment();
+            break;
+
+        case 'View all roles':
+            addviewRoles();
+            break;
+
+         case 'View all employees':
+            addviewEmployee();
+            break;
+
+        case 'Add a department':
+            addDepartment();
+            break;
+    
+
+        case 'Add an employee':
+            addEmployee();
+            break;
+            
+        case 'Add an employee role':
+            addEmployeeRole();
+            break;
+            
     }
+});
+
+function addDepartment (){
+    inquirer
+  .prompt([
+    {
+      name: 'Name',
+      message: 'What is the name department you would like to add?',
+      type:'input',
+      
+    },
+
+     ])
+  .then(answers => {
+  console.log(answers)
   });
+  }
+
+
 
   function addEmployee (){
     inquirer
@@ -36,6 +78,35 @@ inquirer
     {
         name: 'lastName',
         message: 'What is the employee last name?',
+        type:'input',
+        
+      },
+  ])
+  .then(answers => {
+  console.log(answers)
+  });
+  }
+
+  function addEmployeeRole(){
+    inquirer
+  .prompt([
+    {
+      name: 'Title',
+      message: 'What is the employee title?',
+      type:'input',
+      
+    },
+
+    {
+        name: 'Salary',
+        message: 'What is the employee salary?',
+        type:'input',
+        
+      },
+
+      {
+        name: 'lastName',
+        message: 'What is the employee ID ?',
         type:'input',
         
       },
