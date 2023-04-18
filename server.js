@@ -1,5 +1,18 @@
 const inquirer = require('inquirer');
+const express = require('express');
+const mysql = require('mysql2');
 
+const db = mysql.createConnection(
+    {
+      host: 'localhost',
+      // MySQL username,
+      user: 'root',
+      // MySQL password
+      password: 'Ambition',
+      database: 'employee_db'
+    },
+    console.log(`Connected to the books_db database.`)
+  );
 
 inquirer
   .prompt([
@@ -20,15 +33,15 @@ inquirer
   .then(answers => {
     switch (answers.choice) {
         case 'View all departments':
-            addviewDepartment();
+            viewDepartment();
             break;
 
         case 'View all roles':
-            addviewRoles();
+            viewRoles();
             break;
 
          case 'View all employees':
-            addviewEmployee();
+           viewEmployee();
             break;
 
         case 'Add a department':
@@ -46,6 +59,25 @@ inquirer
             
     }
 });
+
+function viewDepartment (){
+    db.query('SELECT * FROM department', function(error, results){
+    console.log(results);
+    })
+}
+   
+function viewRoles (){
+    db.query('SELECT * FROM roles', function(error, results){
+    console.log(results);
+    })
+}
+
+function viewEmployee (){
+    db.query('SELECT * FROM employee', function(error, results){
+    console.log(results);
+    })
+}
+
 
 function addDepartment (){
     inquirer
@@ -115,3 +147,5 @@ function addDepartment (){
   console.log(answers)
   });
   }
+
+  
