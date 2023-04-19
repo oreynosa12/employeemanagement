@@ -1,5 +1,7 @@
 # employeemanagement
 
+![image](https://user-images.githubusercontent.com/121472588/232962844-876ea980-a00e-4637-ba76-711bfe2d836c.png)
+
 ## Description
 
 This application was created to allow users such as business owners or management to be able to view departments and manage employees. This application allows business owners or management to pull, update or delete records with ease.
